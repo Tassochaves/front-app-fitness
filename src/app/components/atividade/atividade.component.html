@@ -1,0 +1,52 @@
+<div>
+  <div nz-row>
+    <h1 nz-card-grid [ngStyle]="gridStyle">Atividade</h1>
+  </div>
+
+  <div nz-row>
+    <div nz-col nzFlex="2">
+      <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Post de nova atividade">
+        <form nz-form [formGroup]="atividadeForm" class="custom-form">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="caloriasQueimada">Calorias</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com as calorias">
+              <input nz-input formControlName="caloriasQueimada" type="text" id="caloriasQueimada"
+                placeholder="Entre com suas calorias" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="distancia">Distancia</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com a distancia">
+              <input nz-input formControlName="distancia" type="text" id="distancia"
+                placeholder="Entre com a distancia" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="passos">Passos</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com os passos">
+              <input nz-input formControlName="passos" type="number" placeholder="Entre com os passos" id="passos"/>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6">Data</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com os passos">
+              <nz-date-picker style="width: 100%;" formControlName="data"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+
+          <button nz-button nzType="primary" nzBlock class="w-100" [disabled]="atividadeForm.invalid!">Postar
+            atividade</button>
+
+        </form>
+      </nz-card>
+    </div>
+
+
+    <div nz-col nzFlex="3" style="margin-left: 20px;">
+
+    </div>
+  </div>
+</div>

@@ -1,4 +1,39 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<nz-layout class="layout">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item routerLink="/dashboard">
+        <span nz-icon nzType="dashboard"></span>
+        <span>Dashboard</span>
+      </li>
+      <li nz-menu-item routerLink="/treino">
+        <span nz-icon nzType="line-height"></span>
+        <span>Treino</span>
+      </li>
+      <li nz-menu-item routerLink="/atividade">
+        <span nz-icon nzType="audit"></span>
+        <span>Atividade</span>
+      </li>
+      <li nz-menu-item routerLink="/metas">
+        <span nz-icon nzType="rise"></span>
+        <span>Metas</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <span
+        class="trigger"
+        nz-icon
+        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"
+      ></span>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>
