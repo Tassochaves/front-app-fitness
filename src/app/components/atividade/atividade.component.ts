@@ -19,6 +19,7 @@ export class AtividadeComponent {
   };
 
   atividadeForm!: FormGroup;
+  atividades: any;
 
   constructor(
     private fb: FormBuilder,
@@ -33,14 +34,23 @@ export class AtividadeComponent {
       data: [null, [Validators.required]],
     })
 
+    this.listarTodasAtividades();
   }
 
   enviarForm(){
     this.atividadeService.postarAtividade(this.atividadeForm.value).subscribe(resultado => {
       this.messagem.success("Atividade postada com sucesso!", {nzDuration: 5000});
       this.atividadeForm.reset();
+      this.listarTodasAtividades();
     }, error => {
       this.messagem.error("Erro ao postar atividade!", {nzDuration: 5000});
+    })
+  }
+
+  listarTodasAtividades(){
+    this.atividadeService.listarAtividade().subscribe(resultado => {
+      this.atividades = resultado;
+      console.log(this.atividades);
     })
   }
 }

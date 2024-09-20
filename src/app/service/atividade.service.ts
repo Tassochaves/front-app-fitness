@@ -16,4 +16,8 @@ export class AtividadeService {
     return this.httpCliente.post(API_URL + "/atividade", atividadeDto);
   }
 
+  listarAtividade(): Observable<any>{
+    return this.httpCliente.get(API_URL + "/obterAtividades");
+  }
+
 }
