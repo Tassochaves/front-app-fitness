@@ -1,14 +1,14 @@
 <div>
   <div nz-row>
-    <h1 nz-card-grid [ngStyle]="gridStyle">Postagem de Atividades</h1>
+    <h2 nz-card-grid [ngStyle]="gridStyle">Atividades</h2>
   </div>
 
   <div nz-row>
     <div nz-col nzFlex="2">
-      <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Post de nova atividade">
+      <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Nova atividade">
         <form nz-form [formGroup]="atividadeForm" class="custom-form" (ngSubmit)="enviarForm()">
           <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="caloriasQueimadas">Calorias</nz-form-label>
+            <nz-form-label nzRequired nzFor="caloriasQueimadas"></nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com as calorias">
               <input nz-input formControlName="caloriasQueimadas" type="number" id="caloriasQueimadas"
                 placeholder="Entre com suas calorias" />
@@ -16,7 +16,7 @@
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="distancia">Distancia</nz-form-label>
+            <nz-form-label nzRequired nzFor="distancia"></nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com a distancia">
               <input nz-input formControlName="distancia" type="number" id="distancia"
                 placeholder="Entre com a distancia" />
@@ -24,14 +24,14 @@
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="passos">Passos</nz-form-label>
+            <nz-form-label nzRequired nzFor="passos"></nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com os passos">
               <input nz-input formControlName="passos" type="number" placeholder="Entre com os passos" id="passos"/>
             </nz-form-control>
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired >Data</nz-form-label>
+            <nz-form-label nzRequired ></nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com os passos">
               <nz-date-picker style="width: 100%;" formControlName="data"></nz-date-picker>
             </nz-form-control>
@@ -50,6 +50,21 @@
 
     <div nz-col nzFlex="3" style="margin-left: 20px;">
 
+
+        <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Atividades passadas">
+          <nz-card nz-card-grid style="width: 100%;" *ngFor="let atividade of atividades">
+            <div nz-col nzSpan="30">
+              Calorias queimadas: <strong>{{atividade.caloriasQueimadas}}</strong>
+              -
+              Distancia: <strong>{{atividade.distancia}}</strong>
+              -
+              Passos: <strong>{{atividade.passos}}</strong>
+              -
+              Data: <strong>{{atividade.data | date}}</strong>
+
+          </div>
+          </nz-card>
+        </nz-card>
     </div>
   </div>
 </div>
