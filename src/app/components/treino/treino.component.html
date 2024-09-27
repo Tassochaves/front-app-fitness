@@ -1,0 +1,45 @@
+<div nz-row>
+  <h2 nz-card-grid [ngStyle]="gridStyle">Treinos</h2>
+</div>
+
+<div nz-row>
+    <div nz-col nzFlex="2">
+        <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Postar novo treino">
+          <form nz-form [formGroup]="treinoForm">
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Calorias Queimadas</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzErrorTip="Entre com as calorias">
+                <input nz-input type="number" formControlName="caloriasQueimadas" placeholder="entre com as calorias" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Duração</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzErrorTip="Entre com a duração">
+                <input nz-input type="number" formControlName="duracao" placeholder="Duração do treino" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Data</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzErrorTip="Entre com os passos">
+                <nz-date-picker style="width: 100%;" formControlName="data"></nz-date-picker>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Tipo de treino</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzErrorTip="Selecione o tipo">
+                  <nz-select nzAllowClear nzPlaceHolder="Selecione o tipo" formControlName="tipo">
+                      <nz-option *ngFor="let tipo of tiposDeTreinos"
+                        [nzLabel]="tipo" [nzValue]="tipo"></nz-option>
+                  </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                <button nz-button nzType="primary" nzBlock class="w-100" [disabled]="treinoForm.invalid!">Postar</button>
+              </nz-form-control>
+            </nz-form-item>
+
+          </form>
+        </nz-card>
+    </div>
+</div>
