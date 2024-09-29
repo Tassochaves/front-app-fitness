@@ -5,7 +5,7 @@
 <div nz-row>
     <div nz-col nzFlex="2">
         <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Postar novo treino">
-          <form nz-form [formGroup]="treinoForm">
+          <form nz-form [formGroup]="treinoForm" (ngSubmit)="enviarForm()">
             <nz-form-item>
               <nz-form-label [nzSpan]="7" nzRequired>Calorias Queimadas</nz-form-label>
               <nz-form-control [nzSpan]="12" nzErrorTip="Entre com as calorias">

@@ -3,6 +3,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AtividadeService } from '../../service/atividade.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { TreinoService } from '../../service/treino.service';
 
 @Component({
   selector: 'app-treino',
@@ -41,7 +42,7 @@ export class TreinoComponent {
 
   constructor(
     private fb: FormBuilder,
-    private atividadeService: AtividadeService,
+    private treinoService: TreinoService,
     private mensagem: NzMessageService){
 
   }
@@ -54,5 +55,14 @@ export class TreinoComponent {
       caloriasQueimadas: [null, [Validators.required]],
     })
 
+  }
+
+  enviarForm(){
+    this.treinoService.postarTreino(this.treinoForm.value).subscribe(resultado => {
+      this.mensagem.success("Treino postado com sucesso!!", {nzDuration: 5000});
+      this.treinoForm.reset();
+    }, error => {
+      this.mensagem.error("Erro ao postar treino!!", {nzDuration: 5000});
+    })
   }
 }
