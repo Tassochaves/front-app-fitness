@@ -16,4 +16,8 @@ export class TreinoService {
   postarTreino(treinoDto: any): Observable<any>{
     return this.httpCliente.post(API_URL + "/treino", treinoDto);
   }
+
+  listarTreinos(): Observable<any>{
+    return this.httpCliente.get(API_URL + "/treinos");
+  }
 }

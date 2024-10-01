@@ -40,6 +40,8 @@ export class TreinoComponent {
     "Yoga"
   ]
 
+  treinos: any;
+
   constructor(
     private fb: FormBuilder,
     private treinoService: TreinoService,
@@ -55,14 +57,26 @@ export class TreinoComponent {
       caloriasQueimadas: [null, [Validators.required]],
     })
 
+    this.listarTreinos();
   }
 
   enviarForm(){
     this.treinoService.postarTreino(this.treinoForm.value).subscribe(resultado => {
       this.mensagem.success("Treino postado com sucesso!!", {nzDuration: 5000});
-      this.treinoForm.reset();
+      this.limparForm();
+      this.listarTreinos();
     }, error => {
       this.mensagem.error("Erro ao postar treino!!", {nzDuration: 5000});
-    })
+    });
+  }
+
+  limparForm(): void {
+    this.treinoForm.reset();
+  }
+
+  listarTreinos(){
+    this.treinoService.listarTreinos().subscribe(resultado =>{
+      this.treinos = resultado;
+    });
   }
 }

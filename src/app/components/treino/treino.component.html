@@ -42,4 +42,23 @@
           </form>
         </nz-card>
     </div>
+
+    <div nz-col nzFlex="3" style="margin-left: 20px;">
+
+
+      <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Atividades passadas">
+        <nz-card nz-card-grid style="width: 100%;" *ngFor="let treino of treinos">
+          <div nz-col nzSpan="30">
+            Calorias queimadas: <strong>{{treino.caloriasQueimadas}}</strong>
+            -
+            Duração: <strong>{{treino.duracao}}</strong>
+            -
+            Tipo: <strong>{{treino.tipo}}</strong>
+            -
+            Data: <strong>{{treino.data | date}}</strong>
+
+        </div>
+        </nz-card>
+      </nz-card>
+  </div>
 </div>
