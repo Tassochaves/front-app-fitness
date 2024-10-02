@@ -8,7 +8,7 @@
       <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Nova atividade">
         <form nz-form [formGroup]="atividadeForm" class="custom-form" (ngSubmit)="enviarForm()">
           <nz-form-item>
-            <nz-form-label nzRequired nzFor="caloriasQueimadas"></nz-form-label>
+            <nz-form-label nzRequired nzFor="caloriasQueimadas">Calorias</nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com as calorias">
               <input nz-input formControlName="caloriasQueimadas" type="number" id="caloriasQueimadas"
                 placeholder="Entre com suas calorias" />
@@ -16,7 +16,7 @@
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-label nzRequired nzFor="distancia"></nz-form-label>
+            <nz-form-label nzRequired nzFor="distancia">Distancia</nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com a distancia">
               <input nz-input formControlName="distancia" type="number" id="distancia"
                 placeholder="Entre com a distancia" />
@@ -24,14 +24,14 @@
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-label nzRequired nzFor="passos"></nz-form-label>
+            <nz-form-label nzRequired nzFor="passos">Passos</nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com os passos">
               <input nz-input formControlName="passos" type="number" placeholder="Entre com os passos" id="passos"/>
             </nz-form-control>
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-label nzRequired ></nz-form-label>
+            <nz-form-label nzRequired >Data</nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com os passos">
               <nz-date-picker style="width: 100%;" formControlName="data"></nz-date-picker>
             </nz-form-control>

@@ -1,1 +1,61 @@
-<p>metas works!</p>
+<div>
+  <div nz-row>
+    <h2 nz-card-grid [ngStyle]="gridStyle">Metas</h2>
+  </div>
+
+  <div nz-row>
+    <div nz-col nzFlex="2">
+      <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Nova meta">
+        <form nz-form [formGroup]="metaForm" class="custom-form">
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="descricao">Descrição</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com a descrição">
+              <textarea nz-input placeholder="Insira a descrição"
+                formControlName="descricao" [nzAutosize]="{minRows:2, maxRows:6}"></textarea>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label nzRequired >Data inicio</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com a data">
+              <nz-date-picker style="width: 100%;" formControlName="dataInicio"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label nzRequired >Data fim</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor, entre com a data">
+              <nz-date-picker style="width: 100%;" formControlName="dataFim"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-control >
+            <button nz-button nzType="primary" nzBlock class="w-100" [disabled]="metaForm.invalid!">Postar
+              meta</button>
+          </nz-form-control>
+
+
+        </form>
+      </nz-card>
+    </div>
+
+
+    <div nz-col nzFlex="3" style="margin-left: 20px;">
+
+
+        <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Todas as metas">
+          <nz-card nz-card-grid style="width: 100%;" *ngFor="let meta of metas">
+            <div nz-col nzSpan="30">
+              Descrição: <strong>{{meta.descricao}}</strong>
+              -
+              Data Inicio: <strong>{{meta.dataInicio | date}}</strong>
+              -
+              Data Fim: <strong>{{meta.dataFim | date}}</strong>
+
+          </div>
+          </nz-card>
+        </nz-card>
+    </div>
+  </div>
+</div>
+
