@@ -6,7 +6,7 @@
   <div nz-row>
     <div nz-col nzFlex="2">
       <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="Nova meta">
-        <form nz-form [formGroup]="metaForm" class="custom-form">
+        <form nz-form [formGroup]="metaForm" class="custom-form" (ngSubmit)="enviaForm()">
           <nz-form-item>
             <nz-form-label nzRequired nzFor="descricao">Descrição</nz-form-label>
             <nz-form-control nzErrorTip="Por favor, entre com a descrição">
@@ -51,6 +51,11 @@
               Data Inicio: <strong>{{meta.dataInicio | date}}</strong>
               -
               Data Fim: <strong>{{meta.dataFim | date}}</strong>
+              -
+              Alcançada?: <strong>{{meta.alcancada}}</strong>
+
+              <span *ngIf="!meta.alcancada" nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'"
+              [nzTwotoneColor]="'#52c41a'" style="margin-left: 15px;"></span>
 
           </div>
           </nz-card>

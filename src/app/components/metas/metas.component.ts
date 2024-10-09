@@ -32,6 +32,24 @@ export class MetasComponent {
       dataFim: [null, [Validators.required]]
     })
 
+    this.listarMetas();
 
+  }
+
+  enviaForm(){
+    this.metaService.postarMeta(this.metaForm.value).subscribe(res => {
+      this.messagem.success("Treino postado com sucesso!", {nzDuration:5000});
+      this.metaForm.reset();
+      this.listarMetas();
+    }, error =>{
+      this.messagem.error("Erro ao postar treino!", {nzDuration: 5000});
+    })
+  }
+
+  listarMetas(){
+    this.metaService.listarMetas().subscribe(resultado =>{
+      this.metas = resultado;
+      console.log(this.metas);
+    });
   }
 }
