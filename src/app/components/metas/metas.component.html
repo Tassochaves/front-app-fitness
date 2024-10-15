@@ -54,7 +54,7 @@
               -
               Alcançada?: <strong>{{meta.alcancada}}</strong>
 
-              <span *ngIf="!meta.alcancada" nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'"
+              <span *ngIf="!meta.alcancada" (click)="atualizarStatus(meta.id)" nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'"
               [nzTwotoneColor]="'#52c41a'" style="margin-left: 15px;"></span>
 
           </div>

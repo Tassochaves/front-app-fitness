@@ -20,4 +20,8 @@ export class MetaService {
   listarMetas(): Observable<any>{
     return this.httpCliente.get(API_URL + "/metas");
   }
+
+  atualizarStatusMeta(id: number): Observable<any>{
+    return this.httpCliente.get(API_URL + "/atualizar-status/" + id);
+  }
 }

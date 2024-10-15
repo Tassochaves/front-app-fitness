@@ -38,11 +38,11 @@ export class MetasComponent {
 
   enviaForm(){
     this.metaService.postarMeta(this.metaForm.value).subscribe(res => {
-      this.messagem.success("Treino postado com sucesso!", {nzDuration:5000});
+      this.messagem.success("Meta postada com sucesso!", {nzDuration:5000});
       this.metaForm.reset();
       this.listarMetas();
     }, error =>{
-      this.messagem.error("Erro ao postar treino!", {nzDuration: 5000});
+      this.messagem.error("Erro ao postar meta!", {nzDuration: 5000});
     })
   }
 
@@ -50,6 +50,15 @@ export class MetasComponent {
     this.metaService.listarMetas().subscribe(resultado =>{
       this.metas = resultado;
       console.log(this.metas);
+    });
+  }
+
+  atualizarStatus(id: number){
+    this.metaService.atualizarStatusMeta(id).subscribe(resultado =>{
+      this.messagem.success("Meta atualizada com sucesso!", {nzDuration:5000});
+      this.listarMetas();
+    }, error =>{
+      this.messagem.error("Erro ao atualizar meta!", {nzDuration: 5000});
     });
   }
 }
