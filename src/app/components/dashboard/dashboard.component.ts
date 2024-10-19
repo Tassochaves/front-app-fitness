@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
+import { EstatisticaService } from '../../service/estatistica.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,4 +11,19 @@ import { SharedModule } from '../../shared/shared.module';
 })
 export class DashboardComponent {
 
+  dadosEstatistica: any;
+
+  constructor(private estatisticaService: EstatisticaService){}
+
+  ngOnInit(): void {
+    this.obterEstatisticas();
+
+  }
+
+  obterEstatisticas(){
+    this.estatisticaService.obterEstatisticas().subscribe(resultado =>{
+      console.log(resultado);
+      this.dadosEstatistica = resultado;
+    });
+  }
 }
