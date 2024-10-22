@@ -50,7 +50,6 @@ export class AtividadeComponent {
   listarTodasAtividades(){
     this.atividadeService.listarAtividade().subscribe(resultado => {
       this.atividades = resultado;
-      console.log(this.atividades);
     })
   }
 }

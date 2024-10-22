@@ -1,4 +1,5 @@
 <div nz-row>
+  @if (dadosEstatistica) {
   <div nz-col [nzXs]="{span: 5, offset: 1}" [nzLg]="{span: 6, offset: 2}">
     <nz-card nzTitle="Total de calorias queimadas" style="background-color: aliceblue;">
       <p>{{dadosEstatistica.totalCaloriasQueimadas}} cal</p>
@@ -16,10 +17,13 @@
       <p>{{dadosEstatistica.passos}}</p>
     </nz-card>
   </div>
+  }@else {
+    <p>Não há dados para mostrar</p>
+  }
 </div>
 
 <div nz-row style="margin-top: 20px;">
-
+  @if (dadosEstatistica) {
   <div nz-col [nzXs]="{span: 5, offset: 1}" [nzLg]="{span: 6, offset: 2}">
     <nz-card nzTitle="Tempo total gasto" style="background-color: aliceblue;">
       <p>{{dadosEstatistica.duracao}} min</p>
@@ -37,5 +41,26 @@
       <p>{{dadosEstatistica.metasNaoAlcancadas}}</p>
     </nz-card>
   </div>
+  }@else {
+    <p>Não há dados para mostrar</p>
+  }
+</div>
 
+<div nz-row style="margin-top: 15px;">
+
+  <div nz-col nzXs="2" nzSm="4" nzMd="6" nzLg="8" nzXl="10">
+    <nz-card nzTitle="Treinos recentes" style="background-color: aliceblue;">
+        <canvas #graficoDeLinhaTreinos></canvas>
+    </nz-card>
+  </div>
+
+  <div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="4">
+
+  </div>
+
+  <div nz-col nzXs="2" nzSm="4" nzMd="6" nzLg="8" nzXl="10">
+    <nz-card nzTitle="Atividades recentes" style="background-color: aliceblue;">
+      <canvas #graficoDeLinhaAtividades></canvas>
+  </nz-card>
+  </div>
 </div>

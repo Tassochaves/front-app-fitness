@@ -49,7 +49,6 @@ export class MetasComponent {
   listarMetas(){
     this.metaService.listarMetas().subscribe(resultado =>{
       this.metas = resultado;
-      console.log(this.metas);
     });
   }
 
